@@ -5,7 +5,7 @@ var app = new Vue({
         array: [],
         max: 0,
         timer: null,
-        n: 100,
+        n: 55,
         i: -2,
         j: -2,
         delay: 10,
@@ -35,7 +35,7 @@ var app = new Vue({
                     await new Promise((resolve) =>
                         setTimeout(() => {
                             resolve();
-                        }, 20)
+                        }, this.delay)
                     );
                     
                     let value1 = this.array[this.j];
@@ -51,7 +51,7 @@ var app = new Vue({
                                     this.array[this.j+1] = temp;
                                     this.$forceUpdate();
                                     resolve();
-                                }, 150);
+                                }, this.delay);
                         });
                     }
                 }
@@ -64,6 +64,7 @@ var app = new Vue({
         },
         stopSort(){
             this.isRunning = false;
+            this.getArray();
         }
     },
     created() {

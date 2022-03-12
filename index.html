@@ -24,9 +24,15 @@
                 <span>N. of Elements:</span>
                 <input type="number" v-model="n" @change="getArray" max="100" min="5">
             </div>
+            <div>
+                <span>Delay (ms):</span>
+                <input type="number" v-model="delay" max="100" min="5">
+            </div>
             <button @click="stopSort">Stop</button>
         </header>
-        <div v-for="(element,index) in array" :class="index == j && i != array.length ? 'selected' : (index > array.length - 1 - i) && (isRunning) ? 'sorted' : ''" class="element" :style="'width: calc(100% / '+ n +'); height: calc((80% / '+ max +')*'+element+');'"><span v-show="n < 60">{{ element }}</span></div>
+        <div v-for="(element,index) in array" :class="index == j && i != array.length ? 'selected' : (index > array.length - 1 - i) && (isRunning) ? 'sorted' : ''" class="element" :style="'width: calc(100% / '+ n +'); height: calc((80% / '+ max +')*'+element+');'">
+            <span v-show="n < 60">{{ element }}</span>
+        </div>
     </div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<script src="script.js"></script>
