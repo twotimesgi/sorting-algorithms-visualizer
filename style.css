@@ -8,12 +8,12 @@
 
 
 header{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
-    height: 7rem;
-    width: 100%;
+    width: 100;
+    padding: 3px;
     background-color: rgb(43, 43, 43);
     display: flex;
     justify-content: center;
@@ -21,26 +21,28 @@ header{
     box-shadow: 0 0 10px 10px rgba(160, 160, 160, 0.1);
     margin-bottom: 20px;
     color: white;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-#root{
+main{
     width: 100%;
     background-color: rgb(255, 255, 255);
-    height: 100vh;
     padding-top: 5rem;
+    height: 80vh;
     display: flex;
     align-items: flex-end;
 }
 
 .element{
     background-color: rgb(0, 107, 156);
-    border: 2px solid white;
+    border: 1px solid white;
     position: relative;
 }
 
 .element span{
     position: absolute;
-    font-size: 1em;
+    font-size: 0.9em;
     top: -1.5em;
     left: 50%;
     transform: translateX(-50%);
@@ -51,23 +53,25 @@ header{
 }
 
 button{
-    padding: 20px 25px;
-    font-size: 20px;
+    padding: 1.2rem 1.2rem;
+    font-size: 1rem;
     background-color: white;
     border: 1px solid black;
     border-radius: 1px;
+    margin-bottom: 10px;
 
 }
 
 header div{
-    margin: 10px;
+    margin: 0.6rem;
     display: flex;
     align-items: center;
     flex-direction: column;
+
 }
 
 input, select{
-    padding: 13px;
+    padding: 1rem;
     border: 1px solid black;
     width: 200px;
 }
@@ -78,4 +82,13 @@ input{
 
 .sorted{
     background-color: rgb(0, 158, 84);
+}
+
+@media screen and (max-width: 900px) {
+    .element span{
+        font-size: 6px;
+    }
+    header{
+        flex-direction: column;
+    }
 }

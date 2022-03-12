@@ -5,15 +5,18 @@ var app = new Vue({
         array: [],
         max: 0,
         timer: null,
-        n: 55,
+        n: 30,
         i: -2,
         j: -2,
-        delay: 10,
+        delay: 100,
         isRunning: false,
-        isSorted: false
+        isSorted: false,
+        sortingAlgorithm: "0",
+        iterations: 0
     },
     methods: {
         getArray() {
+            this.iterations = 0;
             this.isRunning = false;
             this.i = -2;
             this.j = -2;
@@ -27,24 +30,20 @@ var app = new Vue({
         },
         async bubbleSort() {
             this.isRunning = true;
-            // BubbleSort Algorithm
             for (this.i = 0; this.i < this.array.length && this.isRunning; this.i += 1) {
                 for (this.j = 0; this.j < this.array.length - this.i - 1 && this.isRunning; this.j += 1) {
-        
-                    // To wait for .1 sec
+                    this.iterations++;
+                    // wait here
                     await new Promise((resolve) =>
                         setTimeout(() => {
                             resolve();
                         }, this.delay)
                     );
-                    
-                    let value1 = this.array[this.j];
-                    let value2 = this.array[this.j+1];
-        
-                    // To compare value of two blocks
-                    if (value1 > value2) {
+
+                    // compare [j] and [j+1]
+                    if (this.array[this.j] > this.array[this.j+1]) {
                         await new Promise((resolve) => {
-                                // For waiting for .25 sec
+                                // wait here
                                 setTimeout(() => {
                                     let temp = this.array[this.j];
                                     this.array[this.j]= this.array[this.j+1];
@@ -59,7 +58,9 @@ var app = new Vue({
         },
         startSort(){
             if(!this.isRunning){
-                this.bubbleSort();
+                if(this.sortingAlgorithm == "0"){
+                    this.bubbleSort();
+                }
             }
         },
         stopSort(){
