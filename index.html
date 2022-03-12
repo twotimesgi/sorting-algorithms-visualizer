@@ -16,7 +16,7 @@
             <div>
                 <span>Algorithm:</span>
                 <select v-model="sortingAlgorithm">
-                    <option value="0">bubbleSort()</option>
+                    <option value="0">bubbleSort O(N²)</option>
                     <option value="1">To be implemented</option>
                 </select>
             </div>
@@ -28,8 +28,7 @@
                 <span>Delay (ms):</span>
                 <input type="number" v-model="delay" max="2000" min="5">
             </div>
-            <button v-on:click="startSort">Start</button>
-            <button @click="stopSort">Stop</button>
+            <button v-on:click="startSort">{{isRunning ? 'Stop' : 'Start' }}</button>
             <div>Iterations: {{ iterations }}</idv>
         </header>
         <main>

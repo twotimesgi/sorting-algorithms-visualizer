@@ -62,6 +62,8 @@ var app = new Vue({
                 if(this.sortingAlgorithm == "0"){
                     this.bubbleSort();
                 }
+            }else{
+                this.stopSort();
             }
         },
         stopSort(){
