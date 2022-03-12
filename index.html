@@ -33,7 +33,7 @@
             <div>Iterations: {{ iterations }}</idv>
         </header>
         <main>
-        <div v-for="(element,index) in array" :class="index == j && i != array.length ? 'selected' : (index > array.length - 1 - i) && (isRunning) ? 'sorted' : ''" class="element" :style="'width: calc(100% / '+ n +'); height: calc((80% / '+ max +')*'+element+');'">
+        <div v-for="(element,index) in array" :class="index == j && i != array.length ? 'selected' : (index > array.length - 1 - i) && (isRunning) ? 'sorted' : ''" class="element" :style="'width: calc(100% / '+ n +'); height: calc((90% / '+ max +')*'+element+');'">
             <span v-show="n < 60">{{ element }}</span>
         </div>
         </main>
