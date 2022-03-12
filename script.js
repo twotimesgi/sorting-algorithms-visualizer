@@ -31,7 +31,8 @@ var app = new Vue({
         async bubbleSort() {
             this.isRunning = true;
             for (this.i = 0; this.i < this.array.length && this.isRunning; this.i += 1) {
-                for (this.j = 0; this.j < this.array.length - this.i - 1 && this.isRunning; this.j += 1) {
+                this.iterations++;
+                for (this.j = 0; this.j < this.array.length - 1 && this.isRunning; this.j += 1) {
                     this.iterations++;
                     // wait here
                     await new Promise((resolve) =>
